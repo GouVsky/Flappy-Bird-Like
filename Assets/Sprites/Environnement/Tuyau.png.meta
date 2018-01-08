@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a9df24251c1374793ae7fab896767b88
-timeCreated: 1515326432
+guid: 768a47f1d30c74044a8d597e06a76333
+timeCreated: 1515408095
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Flappy Bird_0
-    21300002: Flappy Bird_1
+    21300000: Tuyau_0
+    21300002: Tuyau_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -62,7 +62,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,13 +82,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flappy Bird_0
+      name: Tuyau_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 6
-        width: 27
-        height: 19
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,13 +96,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Flappy Bird_1
+      name: Tuyau_1
       rect:
         serializedVersion: 2
         x: 34
-        y: 6
-        width: 27
-        height: 19
+        y: 0
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

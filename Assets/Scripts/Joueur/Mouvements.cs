@@ -7,20 +7,17 @@ public class Mouvements : MonoBehaviour
 	public float _puissance_saut;
 
 
-	public Rigidbody __rigid_body;
+	public Rigidbody2D __rigid_body;
 
 	public DefinirSprite __sprite;
-
-	public Sprite __vol,
-				  __mannequin_challenge;
 
 
 
 	void Start()
 	{
-		__rigid_body = GetComponent <Rigidbody> ();
+		__rigid_body = GetComponent <Rigidbody2D> ();
 
-		__sprite.DefinirVisuel (__mannequin_challenge);
+		__sprite.DefinirVisuel ("Mannequin");
 	}
 	
 	void Update()
@@ -29,12 +26,12 @@ public class Mouvements : MonoBehaviour
 		{
 			__rigid_body.velocity = Vector3.up * _puissance_saut;
 
-			__sprite.DefinirVisuel (__vol);
+			__sprite.DefinirVisuel ("Vol");
 		} 
 
 		else
 		{
-			__sprite.DefinirVisuel (__mannequin_challenge);
+			__sprite.DefinirVisuel ("Mannequin");
 		}
 	}
 }
