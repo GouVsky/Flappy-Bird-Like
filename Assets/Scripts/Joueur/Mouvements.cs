@@ -6,11 +6,9 @@ public class Mouvements : MonoBehaviour
 {
 	public float _puissance_saut;
 
-
 	public Rigidbody2D __rigid_body;
 
 	public DefinirSprite __sprite;
-
 
 
 	void Start()

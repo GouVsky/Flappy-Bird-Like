@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DefinirSprite : MonoBehaviour
 {
-	private SpriteRenderer __visuel;
-
 	public Sprite __vol,
 				  __mannequin_challenge;
+
+
+	private SpriteRenderer __visuel;
 
 	private Dictionary <string, Sprite> __formes;
 

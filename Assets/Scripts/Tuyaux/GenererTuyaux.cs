@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class GenererTuyaux : MonoBehaviour
 {
-	public int __spawn;
+	public int __premier_spawn,
+			   __temps_spawn;
 
-	public GameObject __tube_tuyau,
-					  __sortie_tuyau;
+	public GameObject __tube,
+					  __sortie;
 
-	public Vector3 __position_tuyau;
+	public Vector3 __position;
 
-	private Vector3 __position_sortie_tuyau;
+
+	// La longueur ne considère pas la sortie du tuyau.
+
+	private int _longueur;
+
+	private Vector3 __position_tube,
+					__position_sortie;
 
 
 	void Start ()
 	{
-		InvokeRepeating ("Generer", __spawn, __spawn);
+		_longueur = 3;
+
+		InvokeRepeating ("Generer", __premier_spawn, __temps_spawn);
 	}
 	
 	void Update ()
@@ -26,23 +35,32 @@ public class GenererTuyaux : MonoBehaviour
 
 	public void Generer()
 	{
-		__position_sortie_tuyau = __position_tuyau;
+		__position_tube = __position;
+
+		__position_sortie = __position;
 
 
-		int taille_tuyau = Random.Range (1, 3);
+		int taille_tuyau = Random.Range (1, _longueur + 1);
 
 
 		if (taille_tuyau > 1)
 		{
-			Instantiate (__tube_tuyau, __position_tuyau, transform.rotation);
+			for (int i = 0; i < taille_tuyau; i++)
+			{
+				Instantiate (__tube, __position_tube, transform.rotation);
 
-			// La sortie du tuyau se trouve au-dessus du tube.
+				// Chaque tube se trouve au-dessus du précédent.
 
-			__position_sortie_tuyau.y += __tube_tuyau.GetComponent <Renderer> ().bounds.size.y;
+				__position_tube.y += __tube.GetComponent <Renderer> ().bounds.size.y;
+
+				// La sortie du tuyau se trouve au-dessus des tubes.
+
+				__position_sortie.y += __tube.GetComponent <Renderer> ().bounds.size.y;
+			}
 		}
 
 		// Dans tous les cas, la sortie du tuyau est affichée.
 
-		Instantiate (__sortie_tuyau, __position_sortie_tuyau, transform.rotation);
+		Instantiate (__sortie, __position_sortie, transform.rotation);
 	}
 }
