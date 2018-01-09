@@ -10,12 +10,11 @@ public class GenererTuyaux : MonoBehaviour
 	public GameObject __tube,
 					  __sortie;
 
-	public Vector3 __position;
+	public Vector3 __position_sol,
+				   __position_air;
 
 
-	// La longueur ne considère pas la sortie du tuyau.
-
-	private int _longueur;
+	private int _nombre_tubes;
 
 	private Vector3 __position_tube,
 					__position_sortie;
@@ -23,44 +22,69 @@ public class GenererTuyaux : MonoBehaviour
 
 	void Start ()
 	{
-		_longueur = 3;
+		_nombre_tubes = 3;
 
-		InvokeRepeating ("Generer", __premier_spawn, __temps_spawn);
+		InvokeRepeating ("Generation", __premier_spawn, __temps_spawn);
 	}
-	
+
+
+
+
 	void Update ()
 	{
 		
 	}
 
-	public void Generer()
+
+
+
+	public void Generation()
 	{
-		__position_tube = __position;
-
-		__position_sortie = __position;
+		int nombre_tubes = Random.Range (0, _nombre_tubes + 1);
 
 
-		int taille_tuyau = Random.Range (1, _longueur + 1);
+		// Génération des tuyaux à l'endroit.
+
+		Generer (__position_sol, nombre_tubes);
+
+		// Génération des tuyaux à l'envers.
+
+		Generer (__position_air, _nombre_tubes - nombre_tubes, -1, 180);
+	}
 
 
-		if (taille_tuyau > 1)
+
+
+	private void Generer(Vector3 position, int nombre_tubes, int facteur_position = 1, int rotation = 0)
+	{
+		__position_tube = position;
+
+		__position_sortie = position;
+
+
+		if (nombre_tubes > 0)
 		{
-			for (int i = 0; i < taille_tuyau; i++)
+			for (int i = 0; i < nombre_tubes; i++)
 			{
 				Instantiate (__tube, __position_tube, transform.rotation);
 
-				// Chaque tube se trouve au-dessus du précédent.
+				// Chaque tube se trouve à la suite du précédent.
 
-				__position_tube.y += __tube.GetComponent <Renderer> ().bounds.size.y;
+				__position_tube.y += __tube.GetComponent <Renderer> ().bounds.size.y * (facteur_position);
 
-				// La sortie du tuyau se trouve au-dessus des tubes.
+				// La sortie du tuyau se trouve au-à la suite des tubes.
 
-				__position_sortie.y += __tube.GetComponent <Renderer> ().bounds.size.y;
+				__position_sortie.y += __tube.GetComponent <Renderer> ().bounds.size.y * (facteur_position);
 			}
 		}
 
 		// Dans tous les cas, la sortie du tuyau est affichée.
+		// On inverse son sens dans le cas d'un tuyau aérien.
 
-		Instantiate (__sortie, __position_sortie, transform.rotation);
+		Quaternion rotation_sortie = transform.rotation;
+
+		rotation_sortie.x += rotation;
+
+		Instantiate (__sortie, __position_sortie, rotation_sortie);
 	}
 }

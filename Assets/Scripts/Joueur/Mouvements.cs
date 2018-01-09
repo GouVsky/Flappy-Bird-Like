@@ -17,7 +17,10 @@ public class Mouvements : MonoBehaviour
 
 		__sprite.DefinirVisuel ("Mannequin");
 	}
-	
+
+
+
+
 	void Update()
 	{
 		if (Input.GetKey (KeyCode.Space))

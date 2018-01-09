@@ -23,11 +23,17 @@ public class DefinirSprite : MonoBehaviour
 		__formes.Add ("Vol", __vol);
 		__formes.Add ("Mannequin", __mannequin_challenge);
 	}
-	
+
+
+
+
 	void Update ()
 	{
 		
 	}
+
+
+
 
 	public void DefinirVisuel(string forme)
 	{

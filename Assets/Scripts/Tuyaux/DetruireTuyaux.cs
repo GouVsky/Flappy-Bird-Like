@@ -8,11 +8,17 @@ public class DetruireTuyaux : MonoBehaviour
 	{
 		
 	}
-	
+
+
+
+
 	void Update ()
 	{
 		
 	}
+
+
+
 
 	// Détruit le tuyau lorsqu'il n'est plus dans le champ de la caméra.
 
