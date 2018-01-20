@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GenererTuyaux : MonoBehaviour
 {
-	public int __premier_spawn,
-			   __temps_spawn;
+	public float __premier_spawn,
+			     __temps_spawn;
 
 	public GameObject __tube,
 					  __sortie;
@@ -49,7 +49,7 @@ public class GenererTuyaux : MonoBehaviour
 
 		// Génération des tuyaux à l'envers.
 
-		Generer (__position_air, _nombre_tubes - nombre_tubes, -1, 180);
+		Generer (__position_air, _nombre_tubes - nombre_tubes + 1, -1, 180);
 	}
 
 

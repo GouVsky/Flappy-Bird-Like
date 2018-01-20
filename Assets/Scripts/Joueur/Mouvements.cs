@@ -6,33 +6,30 @@ public class Mouvements : MonoBehaviour
 {
 	public float _puissance_saut;
 
-	public Rigidbody2D __rigid_body;
 
-	public DefinirSprite __sprite;
+	private Animator __animator;
+
+	private Rigidbody2D __rigid_body;
+
 
 
 	void Start()
 	{
 		__rigid_body = GetComponent <Rigidbody2D> ();
 
-		__sprite.DefinirVisuel ("Mannequin");
+		__animator = GetComponent <Animator> ();
 	}
 
 
 
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (Input.GetKey (KeyCode.Space))
 		{
 			__rigid_body.velocity = Vector3.up * _puissance_saut;
 
-			__sprite.DefinirVisuel ("Vol");
-		} 
-
-		else
-		{
-			__sprite.DefinirVisuel ("Mannequin");
+			__animator.SetTrigger ("Vol");
 		}
 	}
 }
