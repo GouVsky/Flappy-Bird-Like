@@ -12,15 +12,12 @@ public class GenererTuyaux : MonoBehaviour
 	public Vector3 __position_sol,
 				   __position_air;
 
-
 	private Vector3 __position;
 
 
 	void Start ()
 	{
 		__position = Vector3.zero;
-
-		InvokeRepeating ("Generer", __premier_spawn, __temps_spawn);
 	}
 
 

@@ -11,7 +11,10 @@ public class DeplacementTuyaux : MonoBehaviour
 	{
 		
 	}
-	
+
+
+
+
 	void Update ()
 	{
 		Vector3 nouvelle_position = transform.position - new Vector3 (_vitesse, 0, 0);
