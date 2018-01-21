@@ -72,7 +72,7 @@ public class GenererTuyaux : MonoBehaviour
 
 				__position_tube.y += __tube.GetComponent <Renderer> ().bounds.size.y * (facteur_position);
 
-				// La sortie du tuyau se trouve au-à la suite des tubes.
+				// La sortie du tuyau se trouve à la suite des tubes.
 
 				__position_sortie.y += __tube.GetComponent <Renderer> ().bounds.size.y * (facteur_position);
 			}

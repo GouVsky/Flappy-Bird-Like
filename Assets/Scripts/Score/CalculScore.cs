@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CalculScore : MonoBehaviour
 {
-	public int score;
+	public double __score;
+
+	public Text __texte;
 
 
 	void Start ()
 	{
-		score = 0;
+		__score = 0;
 	}
 
 
@@ -27,7 +30,9 @@ public class CalculScore : MonoBehaviour
 	{
 		if (collider.tag == "Tuyau")
 		{
-			score++;
+			__score += 0.5;
 		}
+
+		__texte.text = "SCORE : " + __score.ToString ();
 	}
 }
