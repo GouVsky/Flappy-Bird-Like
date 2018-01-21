@@ -30,9 +30,11 @@ public class CalculScore : MonoBehaviour
 	{
 		if (collider.tag == "Tuyau")
 		{
+			// L'incrémentation du score est divisé par deux puisqu'il y a deux tuyaux.
+
 			__score += 0.5;
 		}
 
-		__texte.text = "SCORE : " + __score.ToString ();
+		__texte.text = __score.ToString ();
 	}
 }
